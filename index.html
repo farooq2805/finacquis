@@ -4,9 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinAcquis | Strategic M&A Advisory for Tech Founders</title>
-    <meta name="description" content="Maximize your exit value with FinAcquis. Expert M&A advisory, advanced valuations, and strategic buyer matching for high-growth tech entrepreneurs.">
-    <meta name="keywords" content="startup exit, tech M&A, founder advisory, startup valuation, strategic acquisition, sell my startup">
+    <title>FinAcquis | Elite M&A Advisory for Tech Founders</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="FinAcquis provides strategic M&A advisory for high-growth tech founders. Maximize your exit value with institutional-grade valuations and global buyer matching.">
+    <meta name="keywords" content="tech M&A, founder exit strategy, startup valuation, sell SaaS company, startup acquisition advisor, FinAcquis">
+    <meta name="author" content="FinAcquis Elite Advisory">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.finacquis.com/">
+    <meta property="og:title" content="FinAcquis | The Founder's Exit Advantage">
+    <meta property="og:description" content="Maximize your legacy. Strategic M&A advisory for the top 1% of tech entrepreneurs.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200">
+
+    <!-- Schema.org for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialService",
+      "name": "FinAcquis",
+      "description": "Strategic M&A advisory for technology founders and high-growth startups.",
+      "url": "https://www.finacquis.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "San Francisco",
+        "addressRegion": "CA"
+      },
+      "serviceType": "M&A Advisory"
+    }
+    </script>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +43,7 @@
         :root {
             --brand-primary: #6366f1;
             --brand-dark: #020617;
+            --brand-accent: #c084fc;
         }
         body {
             font-family: 'Inter', sans-serif;
@@ -27,9 +55,9 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
         .glass {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
         .gradient-text {
             background: linear-gradient(135deg, #a5b4fc 0%, #818cf8 50%, #c084fc 100%);
@@ -38,16 +66,16 @@
         }
         .reveal {
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
         }
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
         .grid-pattern {
-            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
-            background-size: 40px 40px;
+            background-image: radial-gradient(circle at 1px 1px, rgba(99, 102, 241, 0.08) 1px, transparent 0);
+            background-size: 50px 50px;
         }
         #loader {
             position: fixed;
@@ -57,7 +85,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.8s ease;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: rgba(2, 6, 23, 0.5);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: rgba(99, 102, 241, 0.3);
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: rgba(99, 102, 241, 0.5);
         }
     </style>
 <script type="importmap">
@@ -73,15 +114,19 @@
 </head>
 <body>
     <div id="loader">
-        <div class="w-12 h-12 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
+        <div class="flex flex-col items-center">
+            <div class="w-16 h-16 border-2 border-indigo-500/20 border-t-indigo-500 rounded-full animate-spin mb-4"></div>
+            <div class="text-[10px] font-black uppercase tracking-[0.5em] text-indigo-400">Initializing FinAcquis</div>
+        </div>
     </div>
     <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
     <script>
         window.addEventListener('load', () => {
             const loader = document.getElementById('loader');
             if (loader) {
                 loader.style.opacity = '0';
-                setTimeout(() => loader.style.display = 'none', 500);
+                setTimeout(() => loader.style.display = 'none', 800);
             }
         });
     </script>
