@@ -1,0 +1,8 @@
+{
+  "name": "FinAcquis Elite - Founder M&A Advisory",
+  "description": "A premium, strategic financial advisory platform tailored for tech founders looking for high-impact exits and strategic acquisitions.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
