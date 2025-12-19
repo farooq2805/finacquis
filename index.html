@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -6,6 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>FinAcquis | Premium M&A Advisory & Strategic Exit Intelligence</title>
     
+    <!-- Routing Hack for SPAs -->
+    <script type="text/javascript">
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      })(window.location);
+    </script>
+
     <!-- SEO Meta Tags -->
     <meta name="description" content="FinAcquis is the elite M&A partner for high-growth tech founders. Leverage institutional-grade valuations, global buyer networks, and AI-driven exit strategy.">
     <meta name="keywords" content="FinAcquis, tech founder exit, sell my startup, M&A advisor for SaaS, startup acquisition strategy, series B exit, private equity for tech">
