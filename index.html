@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>FinAcquis | Premium M&A Advisory & Strategic Exit Intelligence</title>
     
-    <!-- Polyfill for process.env used by Gemini SDK and services -->
+    <!-- Initializing process polyfill immediately to prevent SDK crashes -->
     <script>
-      window.process = window.process || { env: {} };
+      window.process = { env: {} };
     </script>
 
     <!-- SEO Meta Tags -->

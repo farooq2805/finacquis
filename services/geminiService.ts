@@ -1,19 +1,25 @@
 
 import { GoogleGenAI } from "@google/genai";
 
-// Ensure process.env exists for the SDK even in browser environments
-const apiKey = typeof process !== 'undefined' && process.env ? process.env.API_KEY : '';
-
-// Initialize only if API key is available to avoid constructor errors
-const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
+// Ensure process.env exists even if polyfill somehow failed
+const getApiKey = () => {
+  try {
+    return (window as any).process?.env?.API_KEY || '';
+  } catch (e) {
+    return '';
+  }
+};
 
 export const getAdvisorResponse = async (userInput: string) => {
-  if (!ai) {
-    console.error("Gemini AI not initialized. Missing API Key.");
-    return "The advisory engine is currently offline for scheduled maintenance. Please check back shortly.";
+  const apiKey = getApiKey();
+  
+  if (!apiKey) {
+    console.warn("Gemini AI API Key not found in process.env.API_KEY");
+    return "Advisory Engine simulated: To enable real-time institutional intelligence, please provide a valid API key in the environment configuration.";
   }
 
   try {
+    const ai = new GoogleGenAI({ apiKey });
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: userInput,
@@ -30,6 +36,6 @@ export const getAdvisorResponse = async (userInput: string) => {
     return response.text || "I've analyzed your request but couldn't generate a strategic brief at this moment.";
   } catch (error) {
     console.error("Gemini API Error:", error);
-    return "I apologize, but I'm currently analyzing several high-profile deals. Could you try again in a moment?";
+    return "Our systems are currently prioritizing high-volume deal flow analysis. Please re-submit your query in a few moments.";
   }
 };
