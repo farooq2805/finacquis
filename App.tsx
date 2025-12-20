@@ -1,12 +1,12 @@
 
 import React, { useEffect } from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import FounderProblems from './components/FounderProblems';
-import Process from './components/Process';
-import ExitAdvisor from './components/ExitAdvisor';
-import SEOContent from './components/SEOContent';
-import Footer from './components/Footer';
+import Navbar from './components/Navbar.tsx';
+import Hero from './components/Hero.tsx';
+import FounderProblems from './components/FounderProblems.tsx';
+import Process from './components/Process.tsx';
+import ExitAdvisor from './components/ExitAdvisor.tsx';
+import SEOContent from './components/SEOContent.tsx';
+import Footer from './components/Footer.tsx';
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -19,11 +19,9 @@ const App: React.FC = () => {
       });
     }, observerOptions);
 
-    // Initial check for all reveal elements
     const elements = document.querySelectorAll('.reveal');
     elements.forEach(el => observer.observe(el));
 
-    // Fallback for Hero (sometimes observer misses immediate visibility)
     const heroElements = document.querySelectorAll('.hero-reveal');
     heroElements.forEach(el => el.classList.add('active'));
 
@@ -42,7 +40,6 @@ const App: React.FC = () => {
         
         <ExitAdvisor />
         
-        {/* Transaction Stats */}
         <section className="py-24 bg-indigo-600/90 backdrop-blur-md relative overflow-hidden">
           <div className="absolute inset-0 opacity-10 mix-blend-overlay grid-pattern"></div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

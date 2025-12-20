@@ -1,5 +1,5 @@
 
-import { FounderProblem, NavItem, BlogPost } from './types';
+import { FounderProblem, NavItem, BlogPost } from './types.ts';
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Intelligence', href: '#solutions' },

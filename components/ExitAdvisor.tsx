@@ -1,6 +1,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { getAdvisorResponse } from '../services/geminiService';
+import { getAdvisorResponse } from '../services/geminiService.ts';
 
 const ExitAdvisor: React.FC = () => {
   const [messages, setMessages] = useState<{role: 'user' | 'ai', content: string}[]>([
@@ -54,7 +54,6 @@ const ExitAdvisor: React.FC = () => {
         </div>
 
         <div className="glass rounded-[2.5rem] overflow-hidden border-white/10 flex flex-col lg:flex-row h-[750px] shadow-[0_50px_100px_rgba(0,0,0,0.6)] reveal">
-          {/* Dashboard Sidebar */}
           <div className="w-full lg:w-80 bg-slate-900/40 p-10 border-b lg:border-b-0 lg:border-r border-white/5 flex flex-col">
             <div className="flex items-center space-x-3 mb-12">
                 <div className="w-2 h-2 bg-indigo-500 rounded-full shadow-[0_0_15px_rgba(99,102,241,1)]"></div>
@@ -81,7 +80,6 @@ const ExitAdvisor: React.FC = () => {
             </div>
           </div>
 
-          {/* Terminal View */}
           <div className="flex-1 flex flex-col bg-slate-950/20">
             <div ref={scrollRef} className="flex-1 p-10 overflow-y-auto space-y-8 custom-scrollbar">
               {messages.map((msg, idx) => (

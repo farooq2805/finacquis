@@ -1,10 +1,18 @@
 
 import { GoogleGenAI } from "@google/genai";
 
-// Always initialize GoogleGenAI with a direct reference to process.env.API_KEY
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Ensure process.env exists for the SDK even in browser environments
+const apiKey = typeof process !== 'undefined' && process.env ? process.env.API_KEY : '';
+
+// Initialize only if API key is available to avoid constructor errors
+const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
 
 export const getAdvisorResponse = async (userInput: string) => {
+  if (!ai) {
+    console.error("Gemini AI not initialized. Missing API Key.");
+    return "The advisory engine is currently offline for scheduled maintenance. Please check back shortly.";
+  }
+
   try {
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
@@ -18,8 +26,8 @@ export const getAdvisorResponse = async (userInput: string) => {
         temperature: 0.7,
       }
     });
-    // Correctly accessing the text property from GenerateContentResponse
-    return response.text;
+    
+    return response.text || "I've analyzed your request but couldn't generate a strategic brief at this moment.";
   } catch (error) {
     console.error("Gemini API Error:", error);
     return "I apologize, but I'm currently analyzing several high-profile deals. Could you try again in a moment?";

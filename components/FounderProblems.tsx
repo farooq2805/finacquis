@@ -1,11 +1,10 @@
 
 import React from 'react';
-import { FOUNDER_PROBLEMS } from '../constants';
+import { FOUNDER_PROBLEMS } from '../constants.tsx';
 
 const FounderProblems: React.FC = () => {
   return (
     <section id="solutions" className="py-32 bg-slate-950 relative overflow-hidden">
-      {/* Decorative background element */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.03)_0%,transparent_70%)] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -28,7 +27,6 @@ const FounderProblems: React.FC = () => {
               className="reveal flex flex-col h-full glass p-10 rounded-[2.5rem] border-slate-800/50 hover:border-indigo-500/30 transition-all duration-500 group relative"
               style={{ transitionDelay: `${idx * 0.1}s` }}
             >
-              {/* Subtle card glow on hover */}
               <div className="absolute inset-0 bg-indigo-600/0 group-hover:bg-indigo-600/[0.02] rounded-[2.5rem] transition-colors pointer-events-none"></div>
               
               <div className="relative">
@@ -45,7 +43,6 @@ const FounderProblems: React.FC = () => {
                 </p>
               </div>
 
-              {/* Pushes the solution section to the bottom for perfect alignment */}
               <div className="mt-auto pt-8 border-t border-slate-800/80">
                 <div className="inline-flex items-center px-3 py-1 mb-4 rounded-md bg-indigo-500/10 border border-indigo-500/20">
                   <span className="text-[10px] font-black text-indigo-400 uppercase tracking-widest">
